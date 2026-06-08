@@ -1,0 +1,6 @@
+services:
+  flask-app:
+    image: flask-demo:latest
+    container_name: flask-test
+    ports:
+      - "5001:5000"
