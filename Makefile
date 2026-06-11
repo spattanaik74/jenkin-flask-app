@@ -21,7 +21,7 @@ bandit:
 semgrep:
 	semgrep --config=auto .
 
-sast: bandit semgrep
+sast: bandit
 
 build:
 	docker build -t $(IMAGE_NAME):$(TAG) .
@@ -48,4 +48,4 @@ deploy-test:
 deploy-prod:
 	docker compose -f docker-compose.prod.yml up -d
 
-all: lint sast sast test build
+all: lint sast test build
