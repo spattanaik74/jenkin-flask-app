@@ -4,7 +4,13 @@ __pycache__/
 *.py[cod]
 *$py.class
 .idea
-
+venv
+.git
+.pytest_cache
+__pycache__
+*.pyc
+ruff_cache
+.bandit
 # C extensions
 *.so
 
