@@ -1,4 +1,4 @@
-.PHONY: install lint format test build run deploy undeploy clean all
+.PHONY: install lint format test sast semgrep trivy build run deploy undeploy clean all
 
 IMAGE_NAME=jenkin-flask-app
 TAG=latest
@@ -14,6 +14,14 @@ format:
 
 test:
 	pytest -v
+
+bandit:
+	bandit -r app.py --skip B104
+
+semgrep:
+	semgrep --config=auto .
+
+sast: bandit semgrep
 
 build:
 	docker build -t $(IMAGE_NAME):$(TAG) .
@@ -40,4 +48,4 @@ deploy-test:
 deploy-prod:
 	docker compose -f docker-compose.prod.yml up -d
 
-all: lint test build
+all: lint sast sast test build
