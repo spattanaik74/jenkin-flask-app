@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return jsonify({"status": "success", "message": "Hello Jenkins CI/CD/polling/webhook/jenkins/server/test"})
+    return jsonify({"status": "success", "message": "Hello Jenkins CI/CD/PRODUCTION-TEST-RECORD"})
 
 
 if __name__ == "__main__":
